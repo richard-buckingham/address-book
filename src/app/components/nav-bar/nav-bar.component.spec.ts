@@ -24,7 +24,7 @@ describe("NavBarComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  it("should have text Address Book", () => {
+  it("should have text 'Address Book'", () => {
     let de: DebugElement = fixture.debugElement.query(By.css("nav"));
     let el = de.nativeElement;
 
