@@ -1,3 +1,33 @@
-<p>
-  contact-list works!
-</p>
+<div class="container">
+
+  <div class="row title">
+    <div class="col col-3">
+      First Name:
+    </div>
+    <div class="col col-3">
+      Last Name:
+    </div>
+    <div class="col col-3">
+      Dept:
+    </div>
+    <div class="col col-3">
+      Phone:
+    </div>
+  </div>
+
+  <div class="row" *ngFor='let contact of contacts'>
+    <div class="col col-3">
+      {{contact.firstname}}
+    </div>
+    <div class="col col-3">
+      {{contact.lastname}}
+    </div>
+    <div class="col col-3">
+      {{contact.department}}
+    </div>
+    <div class="col col-3">
+      {{contact.phonenumber}}
+    </div>
+  </div>
+
+</div>
