@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { AddressBookComponent } from "./address-book.component";
-import { EmployeeListComponent } from "../../components/employee-list/employee-list.component";
+import { EmployeeListComponent } from "../../components/employee-list/contact-list.component";
 
 describe("AddressBookComponent", () => {
   let component: AddressBookComponent;

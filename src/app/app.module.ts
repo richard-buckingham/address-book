@@ -5,14 +5,14 @@ import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 import { AddressBookComponent } from "./containers/address-book/address-book.component";
-import { EmployeeListComponent } from "./components/employee-list/employee-list.component";
+import { ContactListComponent } from "./components/contact-list/contact-list.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     AddressBookComponent,
-    EmployeeListComponent
+    ContactListComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
