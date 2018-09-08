@@ -7,6 +7,7 @@ export class StateService {
   private contacts: Contact[];
 
   constructor() {
+    // sample data
     this.contacts = [
       {
         firstname: "Dan",
