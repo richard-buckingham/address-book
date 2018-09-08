@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 
 import { Contact } from "../../models/contact.model";
 import { StateService } from "../../services/state.service";
+import { ReferenceDataService } from "../../services/reference-data.service";
 
 @Component({
   selector: "add-contact",
@@ -12,11 +13,13 @@ import { StateService } from "../../services/state.service";
 })
 export class AddContactComponent implements OnInit {
   public contactForm: FormGroup;
+  departments: string[];
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private stateService: StateService
+    private stateService: StateService,
+    private referenceDataService: ReferenceDataService
   ) {}
 
   ngOnInit() {
@@ -26,6 +29,8 @@ export class AddContactComponent implements OnInit {
       department: ["", ""],
       phonenumber: ["", ""]
     });
+
+    this.departments = this.referenceDataService.getDepartments();
   }
 
   addContact(): void {

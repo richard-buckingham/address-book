@@ -9,6 +9,7 @@ import {
 } from "@angular/core";
 
 import { Contact } from "../../models/contact.model";
+import { ReferenceDataService } from "../../services/reference-data.service";
 
 @Component({
   selector: "contact-list",
@@ -23,7 +24,11 @@ export class ContactListComponent implements OnInit, OnChanges {
   @Output()
   delete: EventEmitter<Number> = new EventEmitter<Number>();
 
+  constructor(private referenceDataService: ReferenceDataService) {}
+
   filteredContacts: Contact[];
+  departments: string[];
+
   _nameFilter = "";
   get nameFilter(): string {
     return this._nameFilter;
@@ -31,11 +36,11 @@ export class ContactListComponent implements OnInit, OnChanges {
   set nameFilter(value: string) {
     this._nameFilter = value;
     this.filteredContacts = this.nameFilter
-      ? this.performFilter(this.nameFilter)
+      ? this.performNameFilter(this.nameFilter)
       : this.contacts;
   }
 
-  performFilter(filterBy: string): Contact[] {
+  performNameFilter(filterBy: string): Contact[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.contacts.filter(
       (contact: Contact) =>
@@ -44,8 +49,28 @@ export class ContactListComponent implements OnInit, OnChanges {
     );
   }
 
+  _departmentFilter = "";
+  get departmentFilter(): string {
+    return this._departmentFilter;
+  }
+  set departmentFilter(value: string) {
+    this._departmentFilter = value;
+    this.filteredContacts = this.departmentFilter
+      ? this.performDepartmentFilter(this.departmentFilter)
+      : this.contacts;
+  }
+
+  performDepartmentFilter(filterBy: string): Contact[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.contacts.filter(
+      (contact: Contact) =>
+        contact.department.toLocaleLowerCase().indexOf(filterBy) !== -1
+    );
+  }
+
   ngOnInit(): void {
     this.filteredContacts = [...this.contacts];
+    this.departments = this.referenceDataService.getDepartments();
   }
 
   ngOnChanges(): void {

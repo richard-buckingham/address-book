@@ -51,6 +51,7 @@ export class StateService {
   }
 
   deleteContact(index: Number): void {
+    console.log("in deleteContact. index = ", index);
     this.contacts = this.contacts.filter((contact, i) => {
       return i !== index;
     });

@@ -20,11 +20,8 @@
         <div class="form-group">
           <label for="department">Department</label>
           <select class="form-control" id="department" formControlName="department">
-            <option>Marketing</option>
-            <option>HR</option>
-            <option>Engine</option>
-            <option>Aero</option>
-            <option>Sales</option>
+            <option>please select...</option>
+            <option *ngFor="let dept of departments">{{dept}}</option>
           </select>
         </div>
       </div>
