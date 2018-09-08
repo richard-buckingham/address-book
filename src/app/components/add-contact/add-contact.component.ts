@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder } from "@angular/forms";
+import { Router } from "@angular/router";
 
 import { Contact } from "../../models/contact.model";
 
@@ -11,7 +12,7 @@ import { Contact } from "../../models/contact.model";
 export class AddContactComponent implements OnInit {
   public contactForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
@@ -29,6 +30,7 @@ export class AddContactComponent implements OnInit {
       // call service
 
       // redirect
+      this.router.navigateByUrl("/home");
     }
   }
 }

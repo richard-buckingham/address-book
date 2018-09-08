@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { AppRoutingModule } from "./app.routing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
@@ -20,7 +20,17 @@ import { StateService } from "./services/state-service.service";
     ContactDetailComponent,
     AddContactComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: "home", component: AddressBookComponent },
+      { path: "contact-add", component: AddContactComponent },
+      { path: "", redirectTo: "home", pathMatch: "full" },
+      { path: "**", redirectTo: "home", pathMatch: "full" }
+    ])
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
