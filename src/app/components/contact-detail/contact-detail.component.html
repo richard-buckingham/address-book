@@ -5,10 +5,15 @@
   <div class="col col-3">
     {{contact.lastname}}
   </div>
-  <div class="col col-3">
+  <div class="col col-2">
     {{contact.department}}
   </div>
-  <div class="col col-3">
+  <div class="col col-2">
     {{contact.phonenumber}}
+  </div>
+  <div class="col col-1">
+    <button class="btn btn-secondary btn-sm" (click)=deleteContact()>
+      Delete
+    </button>
   </div>
 </div>

@@ -11,16 +11,18 @@
     <div class="col col-3">
       Last Name:
     </div>
-    <div class="col col-3">
+    <div class="col col-2">
       Dept:
     </div>
-    <div class="col col-3">
+    <div class="col col-2">
       Phone:
+    </div>
+    <div class="col col-1">
     </div>
   </div>
 
-  <div *ngFor='let contact of contacts'>
-    <contact-detail [contact]="contact"></contact-detail>
+  <div *ngFor='let contact of contacts; let i = index'>
+    <contact-detail [contact]="contact" [index]="i" (delete)='deleteContact($event)'></contact-detail>
   </div>
 
 </div>

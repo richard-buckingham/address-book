@@ -49,5 +49,9 @@ export class StateService {
     this.contacts = [...this.contacts, contact];
   }
 
-  deleteContact(contact: Contact): void {}
+  deleteContact(index: Number): void {
+    this.contacts = this.contacts.filter((contact, i) => {
+      return i !== index;
+    });
+  }
 }

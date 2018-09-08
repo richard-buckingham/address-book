@@ -1,4 +1,10 @@
-import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
+import {
+  Component,
+  Input,
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter
+} from "@angular/core";
 
 import { Contact } from "../../models/contact.model";
 
@@ -11,4 +17,11 @@ import { Contact } from "../../models/contact.model";
 export class ContactListComponent {
   @Input()
   contacts: Contact[];
+
+  @Output()
+  delete: EventEmitter<Number> = new EventEmitter<Number>();
+
+  deleteContact(index: Number): void {
+    this.delete.emit(index);
+  }
 }

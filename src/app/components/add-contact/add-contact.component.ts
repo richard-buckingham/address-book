@@ -35,4 +35,8 @@ export class AddContactComponent implements OnInit {
       this.router.navigateByUrl("/home");
     }
   }
+
+  cancel() {
+    this.router.navigateByUrl("/home");
+  }
 }

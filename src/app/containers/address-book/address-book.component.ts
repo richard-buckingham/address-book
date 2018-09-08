@@ -16,4 +16,9 @@ export class AddressBookComponent implements OnInit {
   ngOnInit() {
     this.contacts = this.stateService.getContacts();
   }
+
+  deleteContact(index: Number): void {
+    this.stateService.deleteContact(index);
+    this.contacts = this.stateService.getContacts();
+  }
 }
