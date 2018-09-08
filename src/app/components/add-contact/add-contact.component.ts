@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 
 import { Contact } from "../../models/contact.model";
+import { StateService } from "../../services/state.service";
 
 @Component({
   selector: "add-contact",
@@ -12,7 +13,11 @@ import { Contact } from "../../models/contact.model";
 export class AddContactComponent implements OnInit {
   public contactForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private stateService: StateService
+  ) {}
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
@@ -26,10 +31,7 @@ export class AddContactComponent implements OnInit {
   addContact(): void {
     if (this.contactForm.dirty) {
       const contact = <Contact>this.contactForm.value;
-      console.log("contact = ", contact);
-      // call service
-
-      // redirect
+      this.stateService.saveContact(contact);
       this.router.navigateByUrl("/home");
     }
   }

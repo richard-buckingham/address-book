@@ -45,7 +45,9 @@ export class StateService {
     return this.contacts;
   }
 
-  saveContact(contact: Contact): void {}
+  saveContact(contact: Contact): void {
+    this.contacts = [...this.contacts, contact];
+  }
 
   deleteContact(contact: Contact): void {}
 }
