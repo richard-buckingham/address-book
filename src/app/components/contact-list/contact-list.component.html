@@ -15,19 +15,8 @@
     </div>
   </div>
 
-  <div class="row" *ngFor='let contact of contacts'>
-    <div class="col col-3">
-      {{contact.firstname}}
-    </div>
-    <div class="col col-3">
-      {{contact.lastname}}
-    </div>
-    <div class="col col-3">
-      {{contact.department}}
-    </div>
-    <div class="col col-3">
-      {{contact.phonenumber}}
-    </div>
+  <div *ngFor='let contact of contacts'>
+    <contact-detail [contact]="contact"></contact-detail>
   </div>
 
 </div>
