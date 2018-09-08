@@ -1,12 +1,14 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app.routing";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 import { AddressBookComponent } from "./containers/address-book/address-book.component";
 import { ContactListComponent } from "./components/contact-list/contact-list.component";
-import { ContactDetailComponent } from './components/contact-detail/contact-detail.component';
+import { ContactDetailComponent } from "./components/contact-detail/contact-detail.component";
+import { AddContactComponent } from "./components/add-contact/add-contact.component";
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { ContactDetailComponent } from './components/contact-detail/contact-deta
     NavBarComponent,
     AddressBookComponent,
     ContactListComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    AddContactComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

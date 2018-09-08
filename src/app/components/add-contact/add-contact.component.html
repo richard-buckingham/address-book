@@ -1,0 +1,40 @@
+<form>
+
+  <h4>Add Contact</h4>
+
+  <form novalidate (ngSubmit)="addContact()" [formGroup]="contactForm">
+    <div class="form-row">
+      <div class="col">
+        <div class="form-group">
+          <label for="firstname">First name</label>
+          <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="first name">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="lastname">Last name</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" formControlName="lastname" placeholder="last name">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select class="form-control" id="department" formControlName="department">
+            <option>Marketing</option>
+            <option>HR</option>
+            <option>Engine</option>
+            <option>Aero</option>
+            <option>Sales</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="phonenumber">Phone number</label>
+          <input type="text" class="form-control" id="phonenumber" formControlName="phonenumber" placeholder="phone number">
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
