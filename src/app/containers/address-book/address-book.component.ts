@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import { Contact } from "../../models/contact.model";
+import { StateService } from "../../services/state.service";
 
 @Component({
   selector: "address-book",
@@ -10,28 +11,9 @@ import { Contact } from "../../models/contact.model";
 export class AddressBookComponent implements OnInit {
   private contacts: Contact[];
 
-  constructor() {}
+  constructor(private stateService: StateService) {}
 
   ngOnInit() {
-    this.contacts = [
-      {
-        firstname: "Dan",
-        lastname: "Ricciardo",
-        department: "Marketing",
-        phonenumber: "0400111111"
-      },
-      {
-        firstname: "Helmet",
-        lastname: "Marko",
-        department: "HR",
-        phonenumber: "0400333333"
-      },
-      {
-        firstname: "Max",
-        lastname: "Verstappen",
-        department: "Marketing",
-        phonenumber: "0400222222"
-      }
-    ];
+    this.contacts = this.stateService.getContacts();
   }
 }

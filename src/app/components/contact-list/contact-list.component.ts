@@ -1,9 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  ChangeDetectionStrategy
-} from "@angular/core";
+import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 
 import { Contact } from "../../models/contact.model";
 
@@ -13,10 +8,7 @@ import { Contact } from "../../models/contact.model";
   templateUrl: "./contact-list.component.html",
   styleUrls: ["./contact-list.component.scss"]
 })
-export class ContactListComponent implements OnInit {
+export class ContactListComponent {
   @Input()
   contacts: Contact[];
-  constructor() {}
-
-  ngOnInit() {}
 }

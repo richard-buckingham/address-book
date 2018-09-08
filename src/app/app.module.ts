@@ -9,7 +9,7 @@ import { AddressBookComponent } from "./containers/address-book/address-book.com
 import { ContactListComponent } from "./components/contact-list/contact-list.component";
 import { ContactDetailComponent } from "./components/contact-detail/contact-detail.component";
 import { AddContactComponent } from "./components/add-contact/add-contact.component";
-import { StateService } from "./services/state-service.service";
+import { StateService } from "./services/state.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { StateService } from "./services/state-service.service";
       { path: "**", redirectTo: "home", pathMatch: "full" }
     ])
   ],
-  providers: [],
+  providers: [StateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
