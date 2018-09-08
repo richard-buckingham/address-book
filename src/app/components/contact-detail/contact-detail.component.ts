@@ -19,6 +19,8 @@ export class ContactDetailComponent {
   contact: Contact;
   @Input()
   index: Number;
+  @Input()
+  preventContactDeletion: Boolean;
 
   @Output()
   delete: EventEmitter<Number> = new EventEmitter<Number>();

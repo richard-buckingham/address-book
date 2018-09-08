@@ -37,7 +37,7 @@
   </div>
 
   <div *ngFor=' let contact of filteredContacts; let i = index '>
-    <contact-detail [contact]="contact" [index]="i" (delete)='deleteContact($event) '></contact-detail>
+    <contact-detail [contact]="contact" [index]="i" (delete)="deleteContact($event)" [preventContactDeletion]="disableDeleteButton()"></contact-detail>
   </div>
 
 </div>

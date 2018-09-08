@@ -35,6 +35,7 @@ export class ContactListComponent implements OnInit, OnChanges {
   }
   set nameFilter(value: string) {
     this._nameFilter = value;
+    this._departmentFilter = "";
     this.filteredContacts = this.nameFilter
       ? this.performNameFilter(this.nameFilter)
       : this.contacts;
@@ -55,6 +56,7 @@ export class ContactListComponent implements OnInit, OnChanges {
   }
   set departmentFilter(value: string) {
     this._departmentFilter = value;
+    this._nameFilter = "";
     this.filteredContacts = this.departmentFilter
       ? this.performDepartmentFilter(this.departmentFilter)
       : this.contacts;
@@ -75,9 +77,18 @@ export class ContactListComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.filteredContacts = [...this.contacts];
+    this._nameFilter = "";
+    this._departmentFilter = "";
   }
 
   deleteContact(index: Number): void {
     this.delete.emit(index);
+  }
+
+  disableDeleteButton(): boolean {
+    return (
+      this._nameFilter.toString().length > 0 ||
+      this._departmentFilter.toString().length > 0
+    );
   }
 }

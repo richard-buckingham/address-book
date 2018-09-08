@@ -9,7 +9,7 @@ import { StateService } from "../../services/state.service";
   styleUrls: ["./address-book.component.scss"]
 })
 export class AddressBookComponent implements OnInit {
-  private contacts: Contact[];
+  contacts: Contact[];
 
   constructor(private stateService: StateService) {}
 

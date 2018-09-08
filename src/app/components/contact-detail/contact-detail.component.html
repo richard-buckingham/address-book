@@ -12,7 +12,7 @@
     {{contact.phonenumber}}
   </div>
   <div class="col col-1">
-    <button class="btn btn-secondary btn-sm" (click)=deleteContact()>
+    <button class="btn btn-secondary btn-sm" (click)="deleteContact()" [disabled]="preventContactDeletion">
       Delete
     </button>
   </div>
