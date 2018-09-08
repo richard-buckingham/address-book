@@ -9,6 +9,7 @@ import { AddressBookComponent } from "./containers/address-book/address-book.com
 import { ContactListComponent } from "./components/contact-list/contact-list.component";
 import { ContactDetailComponent } from "./components/contact-detail/contact-detail.component";
 import { AddContactComponent } from "./components/add-contact/add-contact.component";
+import { StateService } from "./services/state-service.service";
 
 @NgModule({
   declarations: [
