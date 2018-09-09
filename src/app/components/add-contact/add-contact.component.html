@@ -26,7 +26,6 @@
         <div class="form-group">
           <label for="department">Department</label>
           <select class="form-control" id="department" formControlName="department">
-            <option>please select...</option>
             <option *ngFor="let dept of departments">{{dept}}</option>
           </select>
           <div *ngIf="contactForm.controls.department.touched" class="has-error">
