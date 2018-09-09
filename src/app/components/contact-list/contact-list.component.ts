@@ -28,6 +28,7 @@ export class ContactListComponent implements OnInit, OnChanges {
 
   filteredContacts: Contact[];
   departments: string[];
+  sortDirection: string = "";
 
   _nameFilter = "";
   get nameFilter(): string {
@@ -90,5 +91,32 @@ export class ContactListComponent implements OnInit, OnChanges {
       this._nameFilter.toString().length > 0 ||
       this._departmentFilter.toString().length > 0
     );
+  }
+
+  sort(): void {
+    switch (this.sortDirection) {
+      case "asc": {
+        this.filterContactsDesc();
+        break;
+      }
+      case "desc": {
+        this.filterContactsAsc();
+        break;
+      }
+      default: {
+        this.filterContactsAsc();
+        break;
+      }
+    }
+  }
+
+  filterContactsAsc(): void {
+    this.filteredContacts.sort((a, b) => a.lastname.localeCompare(b.lastname));
+    this.sortDirection = "asc";
+  }
+
+  filterContactsDesc(): void {
+    this.filteredContacts.sort((a, b) => b.lastname.localeCompare(a.lastname));
+    this.sortDirection = "desc";
   }
 }

@@ -23,3 +23,11 @@ select {
   display: inline-block;
   margin-left: 10px;
 }
+
+.sortable {
+  cursor: pointer;
+  padding: 2px;
+  &:hover {
+    background-color: lightgrey;
+  }
+}
