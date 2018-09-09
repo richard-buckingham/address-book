@@ -13,3 +13,14 @@ label {
 button {
   margin-right: 20px;
 }
+
+.has-error {
+  color: red;
+  margin-left: 5px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}

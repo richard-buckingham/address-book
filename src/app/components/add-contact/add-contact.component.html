@@ -8,12 +8,18 @@
         <div class="form-group">
           <label for="firstname">First name</label>
           <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="first name">
+          <div *ngIf="contactForm.controls.firstname.touched" class="has-error">
+            <div *ngIf="contactForm.controls.firstname.errors?.required">required</div>
+          </div>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="lastname">Last name</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" formControlName="lastname" placeholder="last name">
+          <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="last name">
+        </div>
+        <div *ngIf="contactForm.controls.lastname.touched" class="has-error">
+          <div *ngIf="contactForm.controls.lastname.errors?.required">required</div>
         </div>
       </div>
       <div class="col">
@@ -23,17 +29,23 @@
             <option>please select...</option>
             <option *ngFor="let dept of departments">{{dept}}</option>
           </select>
+          <div *ngIf="contactForm.controls.department.touched" class="has-error">
+            <div *ngIf="contactForm.controls.department.errors?.required">required</div>
+          </div>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="phonenumber">Phone number</label>
           <input type="text" class="form-control" id="phonenumber" formControlName="phonenumber" placeholder="phone number">
+          <div *ngIf="contactForm.controls.phonenumber.touched" class="has-error">
+            <div *ngIf="contactForm.controls.phonenumber.errors?.required">required</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid">Submit</button>
     <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
 
   </form>

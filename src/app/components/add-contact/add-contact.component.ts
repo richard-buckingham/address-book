@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 import { Contact } from "../../models/contact.model";
@@ -24,10 +24,10 @@ export class AddContactComponent implements OnInit {
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
-      firstname: ["", ""],
-      lastname: ["", ""],
-      department: ["", ""],
-      phonenumber: ["", ""]
+      firstname: ["", Validators.required],
+      lastname: ["", Validators.required],
+      department: ["", Validators.required],
+      phonenumber: ["", Validators.required]
     });
 
     this.departments = this.referenceDataService.getDepartments();
