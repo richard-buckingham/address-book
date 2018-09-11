@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 import { Contact } from "../../models/contact.model";
@@ -12,6 +12,10 @@ import { ReferenceDataService } from "../../services/reference-data.service";
 })
 export class AddContactComponent implements OnInit {
   public contactForm: FormGroup;
+
+  @Output()
+  save = new EventEmitter<Contact>();
+
   departments: string[];
 
   constructor(
@@ -32,9 +36,10 @@ export class AddContactComponent implements OnInit {
   }
 
   addContact(): void {
-    if (this.contactForm.dirty) {
+    if (this.contactForm.dirty && this.contactForm.valid) {
       const contact = <Contact>this.contactForm.value;
-      this.stateService.saveContact(contact);
+      this.save.emit(contact);
+      this.contactForm.reset();
     }
   }
 

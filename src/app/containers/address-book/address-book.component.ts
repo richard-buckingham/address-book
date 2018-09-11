@@ -21,4 +21,9 @@ export class AddressBookComponent implements OnInit {
     this.stateService.deleteContact(index);
     this.contacts = this.stateService.getContacts();
   }
+
+  saveContact(contact: Contact): void {
+    this.stateService.saveContact(contact);
+    this.contacts = this.stateService.getContacts();
+  }
 }
