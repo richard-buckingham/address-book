@@ -12,7 +12,7 @@ export class StateService {
       {
         firstname: "Dan",
         lastname: "Ricciardo",
-        department: "Marketing",
+        department: "Racing",
         phonenumber: "0400111111"
       },
       {
@@ -24,7 +24,7 @@ export class StateService {
       {
         firstname: "Max",
         lastname: "Verstappen",
-        department: "Marketing",
+        department: "Racing",
         phonenumber: "0400222222"
       },
       {

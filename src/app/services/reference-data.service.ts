@@ -5,6 +5,14 @@ import { Injectable } from "@angular/core";
 })
 export class ReferenceDataService {
   public getDepartments(): string[] {
-    return ["Marketing", "HR", "Engine", "Aero", "Sales", "Management"];
+    return [
+      "Racing",
+      "Marketing",
+      "HR",
+      "Engine",
+      "Aero",
+      "Sales",
+      "Management"
+    ];
   }
 }
