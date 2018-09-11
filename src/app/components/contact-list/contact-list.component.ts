@@ -72,12 +72,13 @@ export class ContactListComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.filteredContacts = [...this.contacts];
+    //this.filteredContacts = [...this.contacts];
+    this.filteredContacts = this.contacts;
     this.departments = this.referenceDataService.getDepartments();
   }
 
   ngOnChanges(): void {
-    this.filteredContacts = [...this.contacts];
+    this.filteredContacts = this.contacts;
     this._nameFilter = "";
     this._departmentFilter = "";
   }
