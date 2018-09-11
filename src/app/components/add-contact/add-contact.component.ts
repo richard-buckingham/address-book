@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
 
 import { Contact } from "../../models/contact.model";
 import { StateService } from "../../services/state.service";
@@ -17,7 +16,6 @@ export class AddContactComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
     private stateService: StateService,
     private referenceDataService: ReferenceDataService
   ) {}
@@ -37,11 +35,8 @@ export class AddContactComponent implements OnInit {
     if (this.contactForm.dirty) {
       const contact = <Contact>this.contactForm.value;
       this.stateService.saveContact(contact);
-      this.router.navigateByUrl("/home");
     }
   }
 
-  cancel() {
-    this.router.navigateByUrl("/home");
-  }
+  cancel() {}
 }

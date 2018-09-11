@@ -1,7 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
@@ -20,17 +19,7 @@ import { StateService } from "./services/state.service";
     ContactDetailComponent,
     AddContactComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: "home", component: AddressBookComponent },
-      { path: "contact-add", component: AddContactComponent },
-      { path: "", redirectTo: "home", pathMatch: "full" },
-      { path: "**", redirectTo: "home", pathMatch: "full" }
-    ])
-  ],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [StateService],
   bootstrap: [AppComponent]
 })

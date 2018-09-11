@@ -1,7 +1,11 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AddressBookComponent } from "./address-book.component";
-import { EmployeeListComponent } from "../../components/employee-list/contact-list.component";
+import { ContactListComponent } from "../../components/contact-list/contact-list.component";
+import { AddContactComponent } from "../../components/add-contact/add-contact.component";
+import { ContactDetailComponent } from "../../components/contact-detail/contact-detail.component";
+import { StateService } from "../../services/state.service";
 
 describe("AddressBookComponent", () => {
   let component: AddressBookComponent;
@@ -9,7 +13,14 @@ describe("AddressBookComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AddressBookComponent, EmployeeListComponent]
+      declarations: [
+        AddressBookComponent,
+        ContactListComponent,
+        AddContactComponent,
+        ContactDetailComponent
+      ],
+      imports: [FormsModule, ReactiveFormsModule],
+      providers: [StateService]
     }).compileComponents();
   }));
 
