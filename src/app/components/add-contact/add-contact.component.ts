@@ -43,5 +43,7 @@ export class AddContactComponent implements OnInit {
     }
   }
 
-  cancel() {}
+  reset() {
+    this.contactForm.reset();
+  }
 }
