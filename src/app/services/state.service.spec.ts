@@ -33,22 +33,46 @@ describe("StateService", () => {
       };
 
       service.saveContact(contact);
+
       const contacts = service.getContacts();
+      const contactKimi = contacts.find(
+        c => c.firstname.toLocaleLowerCase() === "kimi"
+      );
+
       expect(contacts.length).toBe(6);
+      expect(contactKimi).toBeTruthy();
     }
   ));
 
   it("should delete from a specified index of the contact array", inject(
     [StateService],
     (service: StateService) => {
-      service.deleteContact(0);
+      const index: number = 0;
+      service.deleteContact(index);
+
       const contacts = service.getContacts();
-      const contact = contacts.find(
+      const contactDan = contacts.find(
         c => c.firstname.toLocaleLowerCase() === "dan"
+      );
+      const contactHelmet = contacts.find(
+        c => c.firstname.toLocaleLowerCase() === "helmet"
+      );
+      const contactMax = contacts.find(
+        c => c.firstname.toLocaleLowerCase() === "max"
+      );
+      const contactChristian = contacts.find(
+        c => c.firstname.toLocaleLowerCase() === "christian"
+      );
+      const contactAdrian = contacts.find(
+        c => c.firstname.toLocaleLowerCase() === "adrian"
       );
 
       expect(contacts.length).toBe(4);
-      expect(contact).toBeFalsy();
+      expect(contactDan).toBeFalsy();
+      expect(contactHelmet).toBeTruthy();
+      expect(contactMax).toBeTruthy();
+      expect(contactChristian).toBeTruthy();
+      expect(contactAdrian).toBeTruthy();
     }
   ));
 });
