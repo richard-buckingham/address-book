@@ -36,7 +36,7 @@ export class AddContactComponent implements OnInit {
   }
 
   addContact(): void {
-    if (this.contactForm.dirty && this.contactForm.valid) {
+    if (this.contactForm.valid) {
       const contact = <Contact>this.contactForm.value;
       this.save.emit(contact);
       this.contactForm.reset();

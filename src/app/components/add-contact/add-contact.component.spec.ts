@@ -25,4 +25,19 @@ describe("AddContactComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+
+  it("should emit a new contact", () => {
+    spyOn(component.save, "emit").and.callThrough();
+
+    const contact = {
+      firstname: "Dan",
+      lastname: "Ricciardo",
+      department: "Racing",
+      phonenumber: "0400111111"
+    };
+
+    component.contactForm.patchValue(contact);
+    component.addContact();
+    expect(component.save.emit).toHaveBeenCalledWith(contact);
+  });
 });
