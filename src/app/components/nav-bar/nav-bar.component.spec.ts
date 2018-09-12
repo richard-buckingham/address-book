@@ -24,10 +24,28 @@ describe("NavBarComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  it("should have text 'Address Book'", () => {
+  it("should have title 'Address Book'", () => {
     let de: DebugElement = fixture.debugElement.query(By.css("nav"));
     let el = de.nativeElement;
 
-    expect(el.textContent).toContain("Address Book");
+    expect(el.textContent).toContain(component.title);
+  });
+
+  it("should display a font-awesome icon", () => {
+    const de: DebugElement = fixture.debugElement.query(By.css("nav>a>i"));
+    const el = de.nativeElement;
+
+    expect(el).toBeTruthy();
+    expect(el.className).toContain("fa-address-book-o");
+  });
+
+  it("should display updated title", () => {
+    const de: DebugElement = fixture.debugElement.query(By.css("nav>a>i>span"));
+    const el = de.nativeElement;
+
+    const testTitle = "Some Test Title";
+    component.title = testTitle;
+    fixture.detectChanges();
+    expect(el.textContent).toContain(testTitle);
   });
 });
