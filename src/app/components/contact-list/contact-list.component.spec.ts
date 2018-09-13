@@ -24,4 +24,13 @@ describe("ContactListComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
+
+  it("should emit a index to delete", () => {
+    spyOn(component.delete, "emit").and.callThrough();
+
+    component.ngOnInit();
+    component.deleteContact(123);
+
+    expect(component.delete.emit).toHaveBeenCalledWith(123);
+  });
 });

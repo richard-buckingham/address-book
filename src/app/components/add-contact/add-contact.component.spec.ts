@@ -36,8 +36,34 @@ describe("AddContactComponent", () => {
       phonenumber: "0400111111"
     };
 
+    component.ngOnInit();
+
     component.contactForm.patchValue(contact);
     component.addContact();
     expect(component.save.emit).toHaveBeenCalledWith(contact);
+  });
+
+  it("form invalid when empty", () => {
+    expect(component.contactForm.valid).toBeFalsy();
+  });
+
+  it("firstname field invalid when empty", () => {
+    let firstname = component.contactForm.controls["firstname"];
+    expect(firstname.valid).toBeFalsy();
+  });
+
+  it("lastname field invalid when empty", () => {
+    let lastname = component.contactForm.controls["lastname"];
+    expect(lastname.valid).toBeFalsy();
+  });
+
+  it("department field invalid when empty", () => {
+    let department = component.contactForm.controls["department"];
+    expect(department.valid).toBeFalsy();
+  });
+
+  it("phonenumber field invalid when empty", () => {
+    let phonenumber = component.contactForm.controls["phonenumber"];
+    expect(phonenumber.valid).toBeFalsy();
   });
 });
